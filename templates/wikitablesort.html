@@ -1,0 +1,48 @@
+<! DOCTYPE html>
+<html>
+<head>
+<!-- choose a theme file -->
+<link rel="stylesheet" href="{{
+  url_for('static', filename='js/tablesorter/themes/blue/style.css')}}" />
+<!-- load jQuery and tablesorter scripts -->
+<script type="text/javascript" src="{{
+  url_for('static', filename='js/tablesorter/jquery-3.3.1.min.js')}}"></script>
+<script type="text/javascript" src="{{
+  url_for('static', filename='js/tablesorter/jquery.tablesorter.min.js')}}"></script>
+
+<script>
+$(document).ready(function(){
+	$('table').tablesorter();
+});
+</script>
+</head>
+<body>
+<h1> 2018 Winter Olympics medal table </h1>
+<h3> Please click the column header to sort!! </h3>
+<table cellspacing = '0' border = '1' style="text-align: center" class = 'tablesorter'>
+<thead>
+<tr>
+	<th scope="col">Rank</th>
+	<th scope="col">NOC</abbr></th>
+	<th scope="col" style="background-color:gold; width:6em;">Gold</th>
+	<th scope="col" style="background-color:silver; width:6em;">Silver</th>
+	<th scope="col" style="background-color:#cc9966; width:6em;">Bronze</th>
+	<th scope="col" style="width:6em;">Total</th>
+</tr>
+
+</thead>
+<tbody>
+{% for item in items %}
+    <tr>
+        <td>{{item.0}}</td>
+        <td>{{item.1}}</td>
+        <td>{{item.2}}</td>
+        <td>{{item.3}}</td>
+		<td>{{item.4}}</td>
+		<td>{{item.5}}</td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+</body>
+</html>
